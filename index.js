@@ -7,7 +7,8 @@ import utils from './utils/index.js';
 // Body parser middleware
 app.use(bodyParser.json());
 // Define route to handle GET requests to '/'
-const __dirname = path.dirname(__filename);
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
+
 
 // Define route to serve the index.html file
 app.get('/', (req, res) => {
