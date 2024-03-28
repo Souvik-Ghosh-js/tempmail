@@ -8,11 +8,10 @@ import utils from './utils/index.js';
 app.use(bodyParser.json());
 // Define route to handle GET requests to '/'
 
-const __dirname = 'C:/Users/91629/Desktop/TALinHouse/emailgenerator';
 
 // Define route to serve the index.html file
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'index.html'));
+    res.sendFile("./views/index.html");
 });
 
 // Define an API endpoint to generate a temporary email
