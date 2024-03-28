@@ -11,7 +11,9 @@ app.use(bodyParser.json());
 
 // Define route to serve the index.html file
 app.get('/', (req, res) => {
-    res.sendFile("./views/index.html");
+    const filePath = path.join(__dirname, 'views', 'index.html');
+
+    res.sendFile(filePath);
 });
 
 // Define an API endpoint to generate a temporary email
