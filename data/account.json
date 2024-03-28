@@ -1,0 +1,19 @@
+{
+  "@context": "/contexts/Account",
+  "@id": "/accounts/66052429e039769f9808391b",
+  "@type": "Account",
+  "id": "66052429e039769f9808391b",
+  "address": "ou1o@awgarstone.com",
+  "quota": 40000000,
+  "used": 0,
+  "isDisabled": false,
+  "isDeleted": false,
+  "createdAt": "2024-03-28T08:02:49+00:00",
+  "updatedAt": "2024-03-28T08:02:49+00:00",
+  "password": "sszaf",
+  "token": {
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTE2MTI5NjksInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJhZGRyZXNzIjoib3Uxb0Bhd2dhcnN0b25lLmNvbSIsImlkIjoiNjYwNTI0MjllMDM5NzY5Zjk4MDgzOTFiIiwibWVyY3VyZSI6eyJzdWJzY3JpYmUiOlsiL2FjY291bnRzLzY2MDUyNDI5ZTAzOTc2OWY5ODA4MzkxYiJdfX0.3xUz6znY6N2bPUsCEqlJLL_dfFg-dGe8Zk5g5MRBytP4OgpjojR-7Gy7mpJZTgzypeTGskjSVDrueAzH6V3QVg",
+    "@id": "/accounts/66052429e039769f9808391b",
+    "id": "66052429e039769f9808391b"
+  }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Generator</title>
+    <link rel="stylesheet" href="public/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Email Generator</h1>
+        <div class="buttons">
+            <button id="generateEmailBtn">Generate New Email</button>
+            <button id="viewEmailsBtn">View Emails</button>
+            <button id="deleteEmailBtn">Delete Current Email</button>
+        </div>
+        <div id="emailStatus"></div>
+    </div>
+    
+    <script>
+        // Function to handle generating a new email
+        const generateEmail = async () => {
+            try {
+                const response = await fetch('/api/generate-email', {
+                    method: 'POST'
+                });
+                const data = await response.json();
+                console.log(data);
+                document.getElementById('emailStatus').innerText =  `${data.email}`;
+            } catch (error) {
+                document.getElementById('emailStatus').innerText = $data;
+            }
+        };
+
+        // Function to handle fetching emails
+        const viewEmails = async () => {
+    try {
+        const response = await fetch('/api/fetch-messages');
+        const data = await response.json();
+
+        // Format the fetched emails
+        let formattedEmails = 'Fetched emails:\n';
+        data.emails.forEach((email, index) => {
+            formattedEmails += `Email ${index + 1}:\n`;
+            formattedEmails += `Address: ${email.from.address}\n`;
+            formattedEmails += `Name: ${email.from.name}\n`;
+            formattedEmails += `Subject: ${email.subject}\n`;
+            formattedEmails += `Intro: ${email.intro}\n`;
+            formattedEmails += `Date: ${new Date(email.createdAt).toLocaleString()}\n\n`;
+        });
+
+        // Display the formatted emails
+        document.getElementById('emailStatus').innerText = formattedEmails;
+    } catch (error) {
+        console.error('Error fetching emails:', error);
+        document.getElementById('emailStatus').innerText = 'Error fetching emails';
+    }
+};
+
+
+        // Function to handle deleting the current email
+        const deleteEmail = async () => {
+            try {
+                const response = await fetch('/api/delete-account', {
+                    method: 'DELETE'
+                });
+                const data = await response.json();
+                document.getElementById('emailStatus').innerText = data.message;
+            } catch (error) {
+                console.error('Error deleting email:', error);
+                document.getElementById('emailStatus').innerText = 'Error deleting email';
+            }
+        };
+
+        // Add event listeners to the buttons
+        document.getElementById('generateEmailBtn').addEventListener('click', generateEmail);
+        document.getElementById('viewEmailsBtn').addEventListener('click', viewEmails);
+        document.getElementById('deleteEmailBtn').addEventListener('click', deleteEmail);
+    </script>
+</body>
+</html>
