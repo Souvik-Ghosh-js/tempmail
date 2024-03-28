@@ -7,8 +7,8 @@ import utils from './utils/index.js';
 // Body parser middleware
 app.use(bodyParser.json());
 // Define route to handle GET requests to '/'
-const __dirname = path.dirname(new URL(import.meta.url).pathname);
-
+// const __dirname = path.dirname(new URL(import.meta.url).pathname);
+const __dirname = 'C:/Users/91629/Desktop/TALinHouse/emailgenerator';
 
 // Define route to serve the index.html file
 app.get('/', (req, res) => {

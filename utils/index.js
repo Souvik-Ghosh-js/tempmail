@@ -1,6 +1,7 @@
 import fetch from "node-fetch";
 import fs from "fs/promises";
 import copy from "./copy.js";
+import axios from "axios";
 import { Low, JSONFile } from "lowdb";
 import ora from "ora";
 import chalk from "chalk";
@@ -99,14 +100,15 @@ const fetchMessages = async () => {
   }
 
   // get the messages
-  const { data } = await fetch("https://api.mail.tm/messages", {
-    headers: {
-      Authorization: `Bearer ${account.token.token}`,
-    },
-  });
-  // get the emails
-  const emails = data["hydra:member"];
+    const response = await fetch("https://api.mail.tm/messages", {
+      headers: {
+        Authorization: `Bearer ${account.token.token}`,
+      },
+    });
 
+  
+    const data = await response.json();
+    const emails = data["hydra:member"];
   // stop the spinner
   spinner.stop();
 
