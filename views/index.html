@@ -26,7 +26,13 @@
                 });
                 const data = await response.json();
                 console.log(data);
+                if (data!= undefined){
                 document.getElementById('emailStatus').innerText =  `${data.email}`;
+                }
+                else{
+                    document.getElementById('emailStatus').innerText =  `email exists. delete the previous one to generate another`;
+
+                }
             } catch (error) {
                 document.getElementById('emailStatus').innerText = $data;
             }
